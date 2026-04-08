@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Compudopt Impact Dashboard Demo</title>
-  <meta name="description" content="Compudopt proposal dashboard that turns spreadsheet-style impact data into an interactive donor-friendly platform.">
+  <title>Compudopt Data Dashboard</title>
+  <meta name="description" content="A database-style Compudopt dashboard that turns spreadsheet records into an accessible, donor-friendly platform.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -16,12 +16,12 @@
       <nav class="topbar">
         <a class="brand" href="#top">
           <span class="brand-mark">C</span>
-          <span>Compudopt Impact Dashboard</span>
+          <span>Compudopt Data Dashboard</span>
         </a>
         <div class="nav-links">
           <a href="#dashboard">Dashboard</a>
-          <a href="#map">Map</a>
-          <a href="#framework">Framework</a>
+          <a href="#records">Records</a>
+          <a href="#insights">Insights</a>
           <a href="#footer">Notes</a>
         </div>
       </nav>
@@ -29,12 +29,13 @@
       <section class="hero-grid">
         <div class="hero-copy">
           <p class="eyebrow">Case competition concept</p>
-          <h1>From spreadsheet to interactive impact platform.</h1>
+          <h1>From spreadsheet rows to a dashboard people can actually use.</h1>
           <p class="lede">
-            This proposal reimagines Compudopt reporting as a donor-friendly dashboard: a place where users can understand where devices move, where schools are impacted, and why the work matters without reading rows of spreadsheet data.
+            This version treats the project like a real data platform. Instead of asking donors and stakeholders to read spreadsheets,
+            it organizes schools, donation sites, cities, and state totals into searchable records, summary cards, and easy-to-read tables.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#map">Open the dashboard</a>
+            <a class="button button-primary" href="#records">Open the data</a>
             <a class="button button-secondary" href="https://www.compudopt.org/" target="_blank" rel="noreferrer">View Compudopt</a>
           </div>
         </div>
@@ -42,13 +43,13 @@
         <aside class="hero-panel">
           <p class="panel-label">What this solves</p>
           <ul class="story-list">
-            <li>Makes program data more accessible and digestible for donors, judges, and partners.</li>
-            <li>Transforms static spreadsheets into map-based storytelling with clear metrics.</li>
-            <li>Combines impact locations and donation locations in one interface.</li>
-            <li>Shows significance by moving from state view to city view to school view.</li>
+            <li>Makes impact data more accessible and digestible.</li>
+            <li>Shows donation locations alongside school outcomes.</li>
+            <li>Turns static reporting into an interactive platform.</li>
+            <li>Helps donors understand significance at a glance.</li>
           </ul>
           <div class="panel-band">
-            <strong>Core message:</strong> Compudopt should not just report data. It should let people see impact.
+            <strong>Recommended framing:</strong> "Compudopt already has the work. This dashboard makes that work easier to see, track, and support."
           </div>
         </aside>
       </section>
@@ -58,140 +59,144 @@
       <section class="section" id="dashboard">
         <div class="section-heading">
           <p class="eyebrow">Dashboard</p>
-          <h2>Key figures a donor should understand in seconds</h2>
+          <h2>High-level metrics first, detailed records second</h2>
           <p>
-            These figures are intentionally fictional for the demo, but they show the right reporting structure: national totals at the top, then drilldown by state, city, school, and donation site.
+            The top layer gives donors a quick read on scale, while the record explorer below helps staff, judges, and partners inspect the underlying data.
           </p>
         </div>
 
         <div class="kpi-grid" id="kpi-grid"></div>
+
+        <div class="insight-layout" id="insights">
+          <section class="panel-card">
+            <div class="card-heading">
+              <div>
+                <p class="mini-label">State performance</p>
+                <h3>Sample impact by state</h3>
+              </div>
+            </div>
+            <div class="bar-list" id="state-bars"></div>
+          </section>
+
+          <section class="panel-card">
+            <div class="card-heading">
+              <div>
+                <p class="mini-label">Data model</p>
+                <h3>How the platform organizes the data</h3>
+              </div>
+            </div>
+            <div class="stack-list">
+              <article class="stack-card">
+                <strong>School records</strong>
+                <p>School, city, state, students reached, computers distributed, and outcome notes.</p>
+              </article>
+              <article class="stack-card">
+                <strong>Donation locations</strong>
+                <p>Site type, city, state, status, devices collected, and partner channel.</p>
+              </article>
+              <article class="stack-card">
+                <strong>City rollups</strong>
+                <p>Counts of schools served, students reached, devices placed, and donation network coverage.</p>
+              </article>
+            </div>
+          </section>
+        </div>
       </section>
 
-      <section class="section map-section" id="map">
+      <section class="section" id="records">
         <div class="section-heading">
-          <p class="eyebrow">Map Explorer</p>
-          <h2>See both impact and donation flow on one map</h2>
+          <p class="eyebrow">Record explorer</p>
+          <h2>A database-style view of schools, donations, and city summaries</h2>
           <p>
-            Use the layer toggle to switch between school impact locations and donation network locations. Hover or click Texas to zoom into the featured proof-of-concept view.
+            Search across records, filter by state and city, and switch between school data, donation locations, and rollup summaries.
           </p>
         </div>
 
-        <div class="map-toolbar">
-          <div class="toggle-group" role="tablist" aria-label="Map layers">
-            <button class="toggle-button is-active" type="button" data-layer="impact">Impact layer</button>
-            <button class="toggle-button" type="button" data-layer="donations">Donation layer</button>
-          </div>
-          <p class="toolbar-note">Texas is the detailed demo state. Other states provide top-line context.</p>
-        </div>
-
-        <div class="map-layout">
-          <div class="map-card">
-            <div class="map-card-header">
+        <div class="records-layout">
+          <section class="panel-card controls-card">
+            <div class="card-heading">
               <div>
-                <p class="mini-label">National footprint</p>
-                <h3>Programs and donation sites</h3>
-              </div>
-              <div class="legend">
-                <span><i class="legend-dot legend-dot-active"></i> impact state</span>
-                <span><i class="legend-dot legend-dot-donation"></i> donation site</span>
-                <span><i class="legend-dot legend-dot-idle"></i> future territory</span>
+                <p class="mini-label">Filters</p>
+                <h3>Explore the records</h3>
               </div>
             </div>
 
-            <div class="usa-map-wrap">
-              <svg id="usa-map" class="usa-map" viewBox="0 0 975 610" aria-label="Interactive United States map"></svg>
+            <div class="control-grid">
+              <label class="field">
+                <span>Search</span>
+                <input id="search-input" type="search" placeholder="Search school, city, state, site, or partner">
+              </label>
+
+              <label class="field">
+                <span>State</span>
+                <select id="state-filter"></select>
+              </label>
+
+              <label class="field">
+                <span>City</span>
+                <select id="city-filter"></select>
+              </label>
             </div>
 
-            <div class="map-help">
-              <strong>How to use:</strong> Hover Texas to zoom into city flags. Switch to donation layer to see fictional collection and distribution locations.
+            <div class="tab-row" id="tab-row">
+              <button class="tab-button is-active" data-tab="schools" type="button">Schools</button>
+              <button class="tab-button" data-tab="donations" type="button">Donations</button>
+              <button class="tab-button" data-tab="cities" type="button">Cities</button>
             </div>
-          </div>
 
-          <aside class="detail-panel" id="detail-panel" aria-live="polite">
-            <p class="mini-label" id="detail-kicker">State snapshot</p>
-            <h3 id="detail-title">Texas</h3>
+            <div class="table-meta">
+              <span id="result-count">0 records</span>
+              <span id="result-note">Showing fictional sample data for presentation use.</span>
+            </div>
+
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead id="table-head"></thead>
+                <tbody id="table-body"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <aside class="panel-card detail-card">
+            <div class="card-heading">
+              <div>
+                <p class="mini-label" id="detail-kicker">Selected record</p>
+                <h3 id="detail-title">Northline STEM Academy</h3>
+              </div>
+            </div>
+
             <p class="detail-summary" id="detail-summary">
-              Texas is the featured state in this demo. Hover over Texas to activate city checkpoints and click a flag to view fictional school-level distributions.
+              Click any row to inspect its metrics, location, and supporting notes.
             </p>
 
             <div class="detail-metrics" id="detail-metrics"></div>
 
             <section class="detail-block">
               <div class="detail-block-heading">
-                <h4 id="detail-list-title">Available cities</h4>
-                <span id="detail-list-count">4 cities</span>
+                <h4 id="detail-list-title">Related tags</h4>
+                <span id="detail-list-count">0 items</span>
               </div>
               <div class="chip-row" id="detail-chip-list"></div>
             </section>
 
             <section class="detail-block">
               <div class="detail-block-heading">
-                <h4 id="detail-card-title">School distributions</h4>
-                <span id="detail-card-count">0 schools</span>
+                <h4 id="detail-card-title">Notes</h4>
+                <span id="detail-card-count">0 entries</span>
               </div>
               <div class="detail-card-list" id="detail-card-list"></div>
             </section>
-
-            <section class="detail-block">
-              <div class="detail-block-heading">
-                <h4>Photos</h4>
-                <span id="photo-count">1 photo</span>
-              </div>
-              <div class="photo-grid" id="photo-grid"></div>
-            </section>
           </aside>
-        </div>
-      </section>
-
-      <section class="section" id="framework">
-        <div class="section-heading">
-          <p class="eyebrow">Framework</p>
-          <h2>How the spreadsheet becomes a dashboard</h2>
-        </div>
-
-        <div class="framework-grid">
-          <article class="framework-card">
-            <h3>Before</h3>
-            <p>Rows of operational data are useful internally, but hard for outside audiences to interpret quickly.</p>
-            <ul>
-              <li>Donation sites and impact sites are disconnected.</li>
-              <li>School-level outcomes are buried in tables.</li>
-              <li>Donors cannot easily visualize scale.</li>
-            </ul>
-          </article>
-
-          <article class="framework-card">
-            <h3>After</h3>
-            <p>The same information becomes an interactive donor-facing platform.</p>
-            <ul>
-              <li>National totals anchor the story.</li>
-              <li>State and city drilldowns make the data legible.</li>
-              <li>Donation locations connect giving to visible impact.</li>
-            </ul>
-          </article>
-
-          <article class="framework-card">
-            <h3>Data model</h3>
-            <p>A future real version could map spreadsheet columns directly into these dashboard objects.</p>
-            <ul>
-              <li>`state`, `city`, `school_name`</li>
-              <li>`students_reached`, `computers_distributed`</li>
-              <li>`donation_site_name`, `donation_site_type`</li>
-              <li>`impact_note`, `photo_url`</li>
-            </ul>
-          </article>
         </div>
       </section>
     </main>
 
     <footer class="footer" id="footer">
-      <p>Demo created as a proposal concept inspired by the visual language of <a href="https://www.compudopt.org/" target="_blank" rel="noreferrer">compudopt.org</a>.</p>
-      <p>All states, cities, schools, donation locations, metrics, and photos in this website are fictional sample data for judging purposes only.</p>
+      <p>Dashboard created as a concept proposal inspired by Compudopt's mission and the need to turn spreadsheet-based tracking into a more accessible platform.</p>
+      <p>All schools, donation sites, locations, metrics, and notes shown here are fictional sample data for presentation purposes only.</p>
     </footer>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
   <script src="./script.js"></script>
 </body>
 </html>
